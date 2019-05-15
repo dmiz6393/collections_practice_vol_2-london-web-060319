@@ -15,23 +15,23 @@ def remove_non_strings(array)
 end
 
 def count_elements(array)
-  array.uniq.collect do |word|
-    word[:count] = array.count(word)
-    word
+array.uniq.collect do |word|
+word[:count] = array.count(word)
+word
   end
 end
 
 def merge_data(keys, data)
-  array = []
-  data.each do |describe| 
-    describe.each do |name, value|
-      keys.each do |key_name| 
-        if key_name.values[0] == name 
-          array << key_name.merge(value)
-        end
-      end
-    end
-  end
+array = []
+data.each do |describe| 
+describe.each do |name, value|
+keys.each do |key_name| 
+if key_name.values[0] == name 
+ array << key_name.merge(value)
+end
+end
+end
+end
   array
 end
 
@@ -40,15 +40,17 @@ def find_cool(cool)
 end
 
 def organize_schools(schools)
-  organize_schools = {}
-  schools.each do |school_name, place|
-    place.each do |location, city|
-      if organize_schools.has_key?(city)
-        organize_schools[city] << school_name
-      else
-        organize_schools[city] = [school_name]
-      end
-    end
-  end
+organize_schools = {}
+schools.each do |school_name, place|
+place.each do |location, city|
+  
+if organize_schools.has_key?(city)
+organize_schools[city] << school_name
+
+else
+organize_schools[city] = [school_name]
+end
+ end
+ end
   organize_schools
 end
